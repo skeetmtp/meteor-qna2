@@ -1,0 +1,27 @@
+<head>
+  <title>meteor-qna</title>
+</head>
+
+<body>
+  {{loginButtons}}
+  {{#if currentUser}}
+  	{{> ask}}
+  {{/if}}
+  {{> list}}
+</body>
+
+<template name="ask">
+  <h1>Ask your Meteor question :</h1>
+  <input id="question" type="text" size="80" />
+  <input id="btn" type="button" value="Ask !" />
+  <br>
+</template>
+
+<template name="list">
+ 	<a href="#" id="sort">Sort</a><br><br>
+	{{#each questions}}
+		 <div {{#if likedByMe}} style="font-weight: bold;" {{/if}}>
+		 	<a href="#" class="like">Like</a> | {{vote}} | {{question}}<br>
+		 </div>
+	{{/each}}
+</template>
